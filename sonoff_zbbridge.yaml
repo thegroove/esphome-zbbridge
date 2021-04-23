@@ -1,0 +1,31 @@
+esphome:
+  name: sonoff_zigbee_bridge
+  platform: ESP8266
+  board: esp_wroom_02 # 2MB
+
+wifi:
+  ssid: YOUR_SSID
+  password: YOUR_PASSWORD
+
+  # Fixed MAC-based dhcp lease recommended, or static IP:
+  # manual_ip:
+  #   static_ip: 10.0.0.42
+  #   gateway: 10.0.0.1
+  #   subnet: 255.255.255.0
+
+api:
+
+logger:
+  baud_rate: 0 # disable serial logging; pins are used for zb module comm
+
+ota:
+
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 115200 # matched to fw: ncp-uart-sw_6.7.8_115200.ota
+
+serial_server:
+  port: 8888 # optional, default is 8888
+
+
