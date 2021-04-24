@@ -14,7 +14,7 @@ wifi:
   #   subnet: 255.255.255.0
 
 api:
-  # set if your bridge is not added to HA, to prevent preiodic reboots:
+  # set this if your bridge is not added to HA, to prevent periodic reboots:
   # reboot_timeout: 0s 
 
 logger:
