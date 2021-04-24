@@ -14,6 +14,8 @@ wifi:
   #   subnet: 255.255.255.0
 
 api:
+  # set if your bridge is not added to HA, to prevent preiodic reboots:
+  # reboot_timeout: 0s 
 
 logger:
   baud_rate: 0 # disable serial logging; pins are used for zb module comm
