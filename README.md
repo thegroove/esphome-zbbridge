@@ -27,7 +27,7 @@ my_esphome_configs/
 ├── yet_another_esp.yaml
 ├── ...
 ```
-- Edit `sonoff_zbbridge.yaml` as needed (Wifi credentials, etc.). By default, the configuration mirrors tasmota-zbbridge: same port, same baud rate, etc.
+- Edit `sonoff_zbbridge.yaml` as needed (Wifi credentials, etc.). By default, the configuration mirrors _tasmota-zbbridge_: same port, same baud rate, etc.
 - Build and upload as you normally would
 
 ## ZHA Configuration
