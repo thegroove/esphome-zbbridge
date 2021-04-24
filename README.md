@@ -28,7 +28,7 @@ my_esphome_configs/
 ├── ...
 ```
 - Edit `sonoff_zbbridge.yaml` as needed (Wifi credentials, etc.). By default, the configuration mirrors _tasmota-zbbridge_: same port, same baud rate, etc.
-- Build and upload as you normally would
+- Compile and upload as you normally would
 
 ## ZHA Configuration
 - In Home Assistant, go to `Configuration > Integrations` and choose `ADD INTEGRATION`
