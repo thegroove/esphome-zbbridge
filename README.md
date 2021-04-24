@@ -17,7 +17,7 @@ If anything, you need a _very_ stable Wifi connection, and even then, EZSP, the 
 ## How to use
 
 - Put `sonoff_zbbridge.yaml` in your ESPHome configuration directory, alongside your other `.yaml` configuration files.
-- Put the `custom_components` directory with its contents in that same directory, so that you end up with:
+- Put the `custom_components/` directory with its contents in that same directory, so that you end up with:
 ```
 my_esphome_configs/
 ├── custom_components/
