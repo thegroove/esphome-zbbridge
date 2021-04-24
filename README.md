@@ -1,4 +1,4 @@
-# ESPHome-zbbridge
+# ESPHome for Sonoff Zigbee Bridge
 ESPHome custom component and configuration for the Sonoff Zigbee Bridge with serial-over-tcp.
 Allows you to use the ZBBridge with e.g. ZHA or Zigbee2MQTT, in the same way as [tasmota-zbbridge](https://zigbee.blakadder.com/Sonoff_ZBBridge.html).
 
