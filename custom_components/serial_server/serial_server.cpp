@@ -38,14 +38,27 @@ void SerialServer::setup() {
         if(tcpClient == nullptr)
             return;
 
+        if(!this->allow_multi_client_ && this->clients_.size() > 0) {
+            ESP_LOGD(TAG, "Not accepting new connection from %s, only one client allowed", tcpClient->remoteIP().toString().c_str());
+            tcpClient->close();
+            return;
+        }        
+
         this->clients_.push_back(std::unique_ptr<Client>(new Client(tcpClient, this->recv_buf_)));
     }, this);
 }
 
 void SerialServer::loop() {
     this->cleanup();
+    this->update_connection_sensor();
     this->serial_read();
     this->serial_write();
+}
+
+void SerialServer::update_connection_sensor(){
+    if(this->connection_sensor_ != nullptr){
+        this->connection_sensor_->publish_state(this->clients_.size() > 0);
+    }
 }
 
 void SerialServer::cleanup() {

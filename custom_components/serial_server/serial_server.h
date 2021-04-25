@@ -22,6 +22,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/uart/uart.h"
+#include "esphome/components/binary_sensor/binary_sensor.h"
 
 #include <memory>
 #include <string>
@@ -47,11 +48,14 @@ public:
     float get_setup_priority() const override { return esphome::setup_priority::AFTER_WIFI; }
 
     void set_port(uint16_t port) { this->port_ = port; }
+    void set_multi_client(bool allow_multi_client) { this->allow_multi_client_ = allow_multi_client; }
+    void register_connection_sensor(binary_sensor::BinarySensor *connection_sensor) {this->connection_sensor_ = connection_sensor; }
 
 protected:
     void cleanup();
     void serial_read();
     void serial_write();
+    void update_connection_sensor();
 
     struct Client {
         Client(AsyncClient *client, std::vector<uint8_t> &recv_buf);
@@ -64,8 +68,10 @@ protected:
 
     AsyncServer server_{0};
     uint16_t port_;
+    bool allow_multi_client_;
     std::vector<uint8_t> recv_buf_{};
     std::vector<std::unique_ptr<Client>> clients_{};
+    binary_sensor::BinarySensor* connection_sensor_;
 };
 
 }  // namespace serial_server
