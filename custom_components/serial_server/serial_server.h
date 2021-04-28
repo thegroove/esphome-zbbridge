@@ -35,6 +35,13 @@
 #include <AsyncTCP.h>
 #endif
 
+#ifdef ARDUINO_ARCH_ESP32
+#include <ESPmDNS.h>
+#endif
+#ifdef ARDUINO_ARCH_ESP8266
+#include <ESP8266mDNS.h>
+#endif
+
 namespace esphome {
 namespace serial_server {
 
@@ -69,6 +76,7 @@ protected:
     AsyncServer server_{0};
     uint16_t port_;
     bool allow_multi_client_;
+
     std::vector<uint8_t> recv_buf_{};
     std::vector<std::unique_ptr<Client>> clients_{};
     binary_sensor::BinarySensor* connection_sensor_;
