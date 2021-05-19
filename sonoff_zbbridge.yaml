@@ -35,5 +35,26 @@ serial_server:
 binary_sensor:
   - platform: serial_server
     name: Zigbee to serial
+    on_press:
+      - light.turn_on: green_led_light
+    on_release:
+      - light.turn_off: green_led_light
 
+status_led:
+  pin:
+    number: GPIO13
+    inverted: true
 
+output:
+  # the 3 lines below control the Green LED
+  - platform: esp8266_pwm
+    id: green_led
+    pin: GPIO0
+    inverted: True
+
+light:
+  # the 4 lines below define the Green LED light, to expose in HomeAssistant remove line "internal: true"
+  - platform: monochromatic
+    id: green_led_light
+    output: green_led
+    internal: true # hides the Green LED from Homeassistant
