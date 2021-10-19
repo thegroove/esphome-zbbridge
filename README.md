@@ -37,6 +37,7 @@ my_esphome_configs/
 - Select _Radio Type_ `EZSP = Silicon Labs EmberZNet protocol:...`
 - Set _Serial device path_ to `socket://[zbbridge_address]:[port]`, fill in appropriately (e.g. `socket://sonoff_zbbridge.local:8888`, `socket://10.0.0.11:4321`)
 - Set _port speed_ to `115200` (this should be set according to the firmware present on your ZB chip, e.g. `ncp-uart-sw-6.7.8_115200.ota` -> `115200`)
+- Set _data flow control_ to `software` (this should be set according to the firmware present on your ZB chip, e.g. `ncp-uart-sw-6.7.8_115200.ota` -> `sw`)
 - Click `Submit` and if all goes well, you should see `Success!`
 
 Note that ZHA does not add your device to Home Assistant through the ESPHome integration. A discovery notification should appear separately in HA, allowing you to add your Bridge as a regular ESPHome node. That way you can monitor it, add sensors like `status`, `wifi_status`, etc., like normal. This, however, is not _required_ for ZHA to function. If you decide not to add your device through the integration, be aware that ESPHome sets a reboot timer for 15 minutes by default, which will cause your device to [reboot automatically](https://esphome.io/components/api.html#configuration-variables) if `api:` was set in `sonoff_zbbridge.yaml` and no Home Assistant API connection was established. You can add `reboot_timeout: 0s` to the `api:` entry to prevent this behavior.
