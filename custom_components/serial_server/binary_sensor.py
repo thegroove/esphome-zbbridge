@@ -7,7 +7,7 @@ from . import SerialServer, CONF_SERIAL_SERVER_ID
 DEPENDENCIES = ['serial_server']
 
 ns = cg.esphome_ns.namespace('binary_sensor')
-class_ = ns.class_('BinarySensor', binary_sensor.BinarySensor, cg.Nameable)
+class_ = ns.class_('BinarySensor', binary_sensor.BinarySensor, cg.EntityBase)
 
 CONFIG_SCHEMA = binary_sensor.BINARY_SENSOR_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(class_),
