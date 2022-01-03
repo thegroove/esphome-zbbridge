@@ -2,6 +2,7 @@ esphome:
   name: sonoff_zigbee_bridge
   platform: ESP8266
   board: esp_wroom_02 # 2MB
+  libraries: ottowinter/ESPAsyncTCP-esphome
 
 wifi:
   ssid: YOUR_SSID
